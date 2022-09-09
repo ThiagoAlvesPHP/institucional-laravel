@@ -1,0 +1,64 @@
+.aboult {
+    position: relative;
+    background-size: cover;
+    background-attachment: fixed;
+
+    .row {
+        .texts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+
+            .title {
+                font-size: 25px;
+                text-transform: uppercase;
+                border-bottom: 1px solid;
+                letter-spacing: 4px;
+            }
+        }
+        div.image {
+            background-size: cover;
+            width: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+
+            .description {
+                text-align: center;
+                padding: 20px;
+                font-size: 18px;
+                background-color: rgba(168, 255, 206, 0.7);
+                margin: 20px;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    svg {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+@media @desktop {
+    .aboult {
+        .row {
+            max-width: 1440px;
+            margin: 0 auto;
+
+            .texts {
+                .title {
+                    font-size: 40px;
+                }
+            }
+
+            div.image {
+                .description {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+}

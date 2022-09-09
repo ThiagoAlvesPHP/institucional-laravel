@@ -1,0 +1,71 @@
+.customers {
+    height: 100%;
+    background-color: #FFF;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #000;
+
+    .title {
+        font-size: 25px;
+        text-align: center;
+        font-weight: 500;
+        margin: 15px 0 30px;
+    }
+
+    .carousel-customers {
+        max-width: 1440px;
+        margin: 10px auto;
+        box-shadow: 0px 0px 10px #DDD;
+        border-radius: 10px;
+
+        .slick-list {
+            border-radius: 10px;
+        }
+
+        .image-customer {
+            transition: all ease 3s;
+            filter: grayscale(100%);
+
+            &.slick-current {
+                filter: grayscale(0%);
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+@media @desktop {
+    .customers {
+        .title {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .carousel-customers {
+            .slick-prev, .slick-next {
+                background-color: rgba(0,0,0, .3);
+                height: 30px;
+                width: 30px;
+                z-index: 1;
+                border-radius: 15px;
+            }
+
+            .slick-prev {
+                left: 0;
+
+                &::before {
+                    content: "<";
+                    font-size: 18px;
+                }
+            }
+
+            .slick-next {
+                right: 0;
+
+                &::before {
+                    content: '>';
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

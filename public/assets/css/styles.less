@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    font-family: 'Roboto';
+    color: @color-text;
+}
+
+body {
+    background: @color-a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, @color-b, @color-a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, @color-b, @color-a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+// Libs
+@import './libs/slick.css';
+@import './libs/slick-theme.css';
+@import './libs/fontawesome/css/all.css';
+
+@import './variables.less';
+@import './mixies.less';
+
+// custom
+@import './custom/_navbar.less';
+@import './custom/_banner.less';
+@import './custom/_aboult.less';
+@import './custom//_customers.less';
+@import './custom//_services.less';
+@import './custom/_products.less';
+@import './custom/_contact.less';
+@import './custom/_footer.less';
