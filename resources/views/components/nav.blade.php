@@ -2,7 +2,7 @@
     <ul class="logo">
         <li class="link-logo">
             <a href="{{ route('home') }}" class="link-menu">
-                <img src="assets/images/logotipo.svg" width="150" alt="Logo">
+                <?=$data['logo'] ?? 'LT Developer' ?>
             </a>
         </li>
     </ul>

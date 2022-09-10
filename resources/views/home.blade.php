@@ -2,10 +2,14 @@
 
 @section('content')
     @php
+        $imgs = [
+            "logo" => '<img src="assets/logo.webp" width="150" alt="Logo">',
+            'favicon' => "assets/favicon.icon"
+        ];
         $banner = [
             "image" => "assets/images/banner2.png",
             "text" => "Leve a presença digital da sua empresa para um próximo nível! Do desenvolvimento à gestão e promoção de seu site, app ou e-commerce",
-            "title" => "LT Developer",
+            "title" => $imgs['logo'] ?? 'LT developer',
             "link" => "https://ltdeveloper.com.br/"
         ];
         $aboult = [
@@ -29,7 +33,6 @@
                 "assets/images/customers/verderosa.png"
             ]
         ];
-
         $services = [
             'title' => 'Serviços',
             'text' => 'Atuando com desenvolvimento de sites, lojas virtuais e aplicativos, criamos soluções customizadas para a necessidade da sua empresa',
@@ -43,7 +46,6 @@
         ];
 
         $image = "assets/images/product.png";
-
         $products = [
             "title" => "Conheça nossos produtos!",
             "list" => [
@@ -55,14 +57,36 @@
         ];
 
         $footer = [
-            "logo" => "assets/images/logotipo.svg",
-            'text' => 'A Olivas Digital é uma martech, desenvolve interfaces voltadas ao público interno e clientes; atua na integração de sistemas de maneira nativa ou automatizada e gestão.',
-            "social" => [
-                ['icon' => "assets/images/icons/linkedin.svg", 'title' => 'LinkedIn', 'link' => ''],
-                ['icon' => "assets/images/icons/facebook.svg", 'title' => 'Facebook', 'link' => 'https://www.facebook.com/devthiagoalves/'],
-                ['icon' => "assets/images/icons/instagram.svg", 'title' => 'Instagram', 'link' => 'https://www.instagram.com/thiagoalvesdevphp/'],
-                ['icon' => "assets/images/icons/whatsapp.svg", 'title' => 'Whatsapp', 'link' => 'https://api.whatsapp.com/send?phone=5573999412514&text=Eu%20preciso%20de%20um%20or%C3%A7amento'],
+            [
+                "logo" => "assets/images/logotipo.svg",
+                'text' => 'A Olivas Digital é uma martech, desenvolve interfaces voltadas ao público interno e clientes; atua na integração de sistemas de maneira nativa ou automatizada e gestão.',
+                "social" => [
+                    [
+                        'icon' => "assets/images/icons/linkedin.svg",
+                        'title' => 'LinkedIn',
+                        'link' => 'https://www.linkedin.com/in/thiago-alves-b96b2159/'
+                    ],
+                    [
+                        'icon' => "assets/images/icons/facebook.svg",
+                        'title' => 'Facebook',
+                        'link' => 'https://www.facebook.com/devthiagoalves/'
+                    ],
+                    [
+                        'icon' => "assets/images/icons/instagram.svg",
+                        'title' => 'Instagram',
+                        'link' => 'https://www.instagram.com/thiagoalvesdevphp/'
+                    ],
+                    [
+                        'icon' => "assets/images/icons/whatsapp.svg",
+                        'title' => 'Whatsapp',
+                        'link' => 'https://api.whatsapp.com/send?phone=5573999412514&text=Eu%20preciso%20de%20um%20or%C3%A7amento'
+                    ],
+                ]
+            ],
+            [
+                ""
             ]
+
         ];
     @endphp
     {{-- Banner --}}

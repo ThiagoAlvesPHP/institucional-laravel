@@ -12,13 +12,15 @@
 </head>
 
 <body>
-    <x-nav></x-nav>
+    <x-nav :data=$imgs />
 
     <main class="main">
         @yield('content')
     </main>
 
-    <x-footer></x-footer>
+    <x-whatsapp />
+
+    <x-footer :data=$footer />
 </body>
 
 </html>
