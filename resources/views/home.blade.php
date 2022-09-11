@@ -2,10 +2,6 @@
 
 @section('content')
     @php
-        $imgs = [
-            "logo" => '<img src="assets/logo.webp" width="150" alt="Logo">',
-            'favicon' => "assets/favicon.icon"
-        ];
         $banner = [
             "image" => "assets/images/banner2.png",
             "text" => "Leve a presença digital da sua empresa para um próximo nível! Do desenvolvimento à gestão e promoção de seu site, app ou e-commerce",
@@ -58,7 +54,7 @@
 
         $footer = [
             [
-                "logo" => "assets/images/logotipo.svg",
+                "logo" => $imgs['logo-dark'],
                 'text' => 'A Olivas Digital é uma martech, desenvolve interfaces voltadas ao público interno e clientes; atua na integração de sistemas de maneira nativa ou automatizada e gestão.',
                 "social" => [
                     [

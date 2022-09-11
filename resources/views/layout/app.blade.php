@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <x-nav :data=$imgs />
+    <x-nav :data=$config />
 
     <main class="main">
         @yield('content')
@@ -20,7 +20,7 @@
 
     <x-whatsapp />
 
-    <x-footer :data=$footer />
+    <x-footer :data=$config />
 </body>
 
 </html>
