@@ -29,6 +29,7 @@ class CreateConfigTable extends Migration
             $table->string('logo_dark');
             $table->string('favicon');
             $table->string('title');
+            $table->string('text');
             $table->string('metas')->nullable();
             $table->string('scripts')->nullable();
             $table->string('keywords')->nullable();

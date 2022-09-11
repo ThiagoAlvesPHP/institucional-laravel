@@ -1,12 +1,12 @@
 <section class="products" id="products">
-    <h3 class="title"><?=$data['title'] ?? ''; ?></h3>
+    <h3 class="title">Conheça nossos produtos!</h3>
 
     <div class="row carousel-products">
-        @foreach ($data['list'] as $value)
+        @foreach ($data as $value)
             <div class="items">
-                <img src="<?=$value['image'] ?? ''; ?>" width="100%" class="image-customer" alt="Customers">
-                <p class="text"><?=$value['title'] ?? ''; ?></p>
-                <a class="link" href="<?=$value['image'] ?? ''; ?>">Saiba Mais</a>
+                <img src="assets/images/<?=$value['image'] ?? ''; ?>" width="100%" class="image-customer" alt="<?=$value['name'] ?? ''; ?>">
+                <p class="text"><?=$value['name'] ?? ''; ?></p>
+                <a class="link" href="#"><?=$value['link_text'] ?? ''; ?></a>
             </div>
         @endforeach
     </div>

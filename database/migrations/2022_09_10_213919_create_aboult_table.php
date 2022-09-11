@@ -16,7 +16,8 @@ class CreateAboultTable extends Migration
         Schema::create('aboult', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('text');
+            $table->longText('text');
+            $table->string('image');
             $table->timestamps();
         });
     }

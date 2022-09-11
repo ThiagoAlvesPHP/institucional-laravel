@@ -4,6 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Config;
+use App\Models\Banner;
+use App\Models\Aboult;
+use App\Models\Projects;
+use App\Models\Service;
+use App\Models\ServiceComplement;
+use App\Models\Products;
+
+use App\Mail\SendMailUser;
+
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -13,36 +23,31 @@ class HomeController extends Controller
         $array = array();
 
         $config =  Config::find(1);
+        $banner = Banner::find(1);
+        $aboult = Aboult::find(1);
+        $projects = Projects::all();
+        $service = Service::find(1);
+        $products = Products::all();
 
-        $imgs = [
-            "logo" => '<img src="assets/'.$config->logo.'" width="150" alt="Logo">',
-            "logo-dark" => '<img src="assets/'.$config->logo_dark.'" width="150" alt="Logo">',
-            'favicon' => "assets/".$config->favicon
-        ];
+        $service_complement = ServiceComplement::all()->where('service_id', $service->id);
+        $service['icons'] = $service_complement;
 
-        // var_dump($this->banner($config, $imgs));
-        // exit;
-
-        $array['imgs'] = $imgs;
         $array['config'] = $config;
+        $array['banner'] = $banner;
+        $array['aboult'] = $aboult;
+        $array['projects'] = $projects;
+        $array['service'] = $service;
+        $array['products'] = $products;
 
         return view('home', $array);
     }
-
     /**
-     * banner
+     * contact form
      */
-    public function banner($config, $imgs)
+    public function mail(Request $request)
     {
-        $array = array();
+        Mail::to('thiagoalves@ltdeveloper.com.br')->send(new SendMailUser());
 
-        $banner = [
-            "image" => "assets/images/banner2.png",
-            "text" => "Leve a presença digital da sua empresa para um próximo nível! Do desenvolvimento à gestão e promoção de seu site, app ou e-commerce",
-            "title" => $imgs['logo'] ?? 'LT developer',
-            "link" => "https://ltdeveloper.com.br/"
-        ];
-
-        return $banner;
+        return redirect()->route('home');
     }
 }

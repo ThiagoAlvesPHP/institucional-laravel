@@ -27,7 +27,8 @@ class ConfigFactory extends Factory
             "logo"              => "logo.webp",
             "logo_dark"         => "logo.png",
             "favicon"           => 'favicon.icon',
-            'title'             => "Institucional"
+            'title'             => "Institucional",
+            'text'             => "Atuando com desenvolvimento de sites, lojas virtuais, aplicativos e sistemas web criamos soluções customizadas para a necessidade da sua empresa"
         ];
     }
 }

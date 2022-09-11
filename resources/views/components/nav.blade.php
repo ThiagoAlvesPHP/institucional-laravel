@@ -15,7 +15,7 @@
             <a href="{{ route('home') }}#aboult" class="link-menu">Sobre</a>
         </li>
         <li>
-            <a href="{{ route('home') }}#customers" class="link-menu">Clientes</a>
+            <a href="{{ route('home') }}#projects" class="link-menu">Projetos</a>
         </li>
         <li>
             <a href="{{ route('home') }}#products" class="link-menu">Produtos</a>

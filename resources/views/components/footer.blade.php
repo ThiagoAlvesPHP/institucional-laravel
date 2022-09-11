@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="row">
         <div class="col text-social">
-            <img src="assets/<?=$data->logo; ?>" width="150" alt="Logo">
+            <img src="assets/<?=$data->logo_dark; ?>" width="150" alt="Logo">
             <p class="text"><?=$data->text; ?></p>
             <div class="social">
                 {{-- @if ($data[0]['social'])
@@ -28,7 +28,7 @@
         <div class="col text-menu">
             <a href="{{ route('home') }}#home" class="link-menu">Home</a>
             <a href="{{ route('home') }}#aboult" class="link-menu">Sobre</a>
-            <a href="{{ route('home') }}#customers" class="link-menu">Clientes</a>
+            <a href="{{ route('home') }}#projects" class="link-menu">Projetos</a>
             <a href="{{ route('home') }}#products" class="link-menu">Produtos</a>
             <a href="{{ route('home') }}#contact" class="link-menu">Contato</a>
         </div>
