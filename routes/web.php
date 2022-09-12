@@ -22,4 +22,10 @@ Route::prefix('/')->group(function () {
 
 Route::prefix('/admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+    Route::get('/banner', [AdminController::class, 'index'])->name('banner');
+    Route::get('/aboult', [AdminController::class, 'index'])->name('aboult');
+    Route::get('/projects', [AdminController::class, 'index'])->name('projects');
+    Route::get('/services', [AdminController::class, 'index'])->name('services');
+    Route::get('/products', [AdminController::class, 'index'])->name('products');
+    Route::get('/config', [AdminController::class, 'index'])->name('config');
 });
