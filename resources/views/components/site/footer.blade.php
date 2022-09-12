@@ -4,13 +4,13 @@
             <img src="assets/<?=$data->logo_dark; ?>" width="150" alt="Logo">
             <p class="text"><?=$data->text; ?></p>
             <div class="social">
-                {{-- @if ($data[0]['social'])
-                    @foreach ($data[0]['social'] as $value)
-                        <a href="<?=$value['link'] ?? '' ?>" class="link-social" title="<?=$value['title'] ?? '' ?>">
-                            <img src="<?=$value['icon'] ?? '' ?>" width="30" height="30" alt="<?=$value['title'] ?? '' ?>">
+                @if ($configSocial)
+                    @foreach ($configSocial as $value)
+                        <a href="<?=$value['link'] ?? '' ?>" class="link-social" title="<?=$value['name'] ?? '' ?>">
+                            <img src="assets/images/icons/<?=$value['icon'] ?? '' ?>" width="30" height="30" alt="<?=$value['name'] ?? '' ?>">
                         </a>
                     @endforeach
-                @endif --}}
+                @endif
             </div>
         </div>
         <div class="col text-contact">

@@ -10,6 +10,7 @@ use App\Models\Projects;
 use App\Models\Service;
 use App\Models\ServiceComplement;
 use App\Models\Products;
+use App\Models\ConfigSocial;
 
 use App\Mail\SendMailUser;
 
@@ -28,6 +29,7 @@ class HomeController extends Controller
         $projects = Projects::all();
         $service = Service::find(1);
         $products = Products::all();
+        $config_social = ConfigSocial::all()->where("status", '1');
 
         $service_complement = ServiceComplement::all()->where('service_id', $service->id);
         $service['icons'] = $service_complement;
@@ -38,6 +40,7 @@ class HomeController extends Controller
         $array['projects'] = $projects;
         $array['service'] = $service;
         $array['products'] = $products;
+        $array['config_social'] = $config_social;
 
         return view('home', $array);
     }

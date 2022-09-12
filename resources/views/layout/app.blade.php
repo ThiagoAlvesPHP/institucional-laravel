@@ -12,15 +12,15 @@
 </head>
 
 <body>
-    <x-nav :data=$config />
+    <x-site.nav :data=$config />
 
     <main class="main">
         @yield('content')
     </main>
 
-    <x-whatsapp />
+    <x-site.whatsapp />
 
-    <x-footer :data=$config />
+    <x-site.footer :data=$config :configSocial=$config_social/>
 </body>
 
 </html>

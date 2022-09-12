@@ -15,6 +15,10 @@ class CreateConfigSocialTable extends Migration
     {
         Schema::create('config_social', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('link');
+            $table->string('icon');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

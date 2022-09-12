@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         Service::factory(1)->create();
         $this->call(ServiceComplementSeeder::class);
         Products::factory(10)->create();
+        $this->call(ConfigSocialSeeder::class);
     }
 }
