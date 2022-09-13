@@ -4,7 +4,7 @@ $(function(){
         $(this).parent().addClass('navbar-mobile-close');
         $(this).parent().removeClass('navbar-mobile-show');
     });
-    $(document).on('click', '.navbar .link-menu', function(e) {
+    $(document).on('click', '.navbar .links .link-menu', function(e) {
         e.preventDefault();
         let id = $(this).attr('href').split('#'),
             targetOffset = $(`#${id[1]}`).offset().top;
