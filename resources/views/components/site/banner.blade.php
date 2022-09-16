@@ -5,6 +5,6 @@
         <a href="<?=$data['link'] ?? ''; ?>" class="link"><?=$data['link_text'] ?></a>
     </div>
     <div class="img">
-        <img src="assets/images/<?=$data['image'] ?? ""; ?>" alt="Banner" width="100%" class="banner-img">
+        <img src="{{ asset('assets/images/'.$data->image ?? '') }}" alt="Banner" width="100%" class="banner-img">
     </div>
 </section>

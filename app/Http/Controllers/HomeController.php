@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 use App\Models\Config;
 use App\Models\Banner;
 use App\Models\Aboult;
@@ -23,24 +25,18 @@ class HomeController extends Controller
     {
         $array = array();
 
-        $config =  Config::find(1);
-        $banner = Banner::find(1);
-        $aboult = Aboult::find(1);
-        $projects = Projects::all();
         $service = Service::find(1);
-        $products = Products::all();
-        $config_social = ConfigSocial::all()->where("status", '1');
 
         $service_complement = ServiceComplement::all()->where('service_id', $service->id);
         $service['icons'] = $service_complement;
 
-        $array['config'] = $config;
-        $array['banner'] = $banner;
-        $array['aboult'] = $aboult;
-        $array['projects'] = $projects;
+        $array['config'] = Config::find(1);
+        $array['banner'] = Banner::find(1);
+        $array['aboult'] = Aboult::find(1);
+        $array['projects'] = Projects::all();
         $array['service'] = $service;
-        $array['products'] = $products;
-        $array['config_social'] = $config_social;
+        $array['products'] = Products::all();
+        $array['config_social'] = ConfigSocial::all()->where("status", '1');
 
         return view('home', $array);
     }
@@ -49,8 +45,36 @@ class HomeController extends Controller
      */
     public function mail(Request $request)
     {
-        Mail::to('thiagoalves@ltdeveloper.com.br')->send(new SendMailUser());
+        $array = array();
 
-        return redirect()->route('home');
+        $service = Service::find(1);
+
+        $service_complement = ServiceComplement::all()->where('service_id', $service->id);
+        $service['icons'] = $service_complement;
+
+        $array['config'] = Config::find(1);
+        $array['banner'] = Banner::find(1);
+        $array['aboult'] = Aboult::find(1);
+        $array['projects'] = Projects::all();
+        $array['service'] = $service;
+        $array['products'] = Products::all();
+        $array['config_social'] = ConfigSocial::all()->where("status", '1');
+
+        $rules = [
+            'name'      => 'required|min:3',
+            'email'     => 'required|email',
+            'subject'   => 'required|min:8',
+            'phone'     => 'required|min:8',
+            'message'   => 'required|min:30'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if($validator->fails()) {
+            return redirect()->route('home', ['#contact'])->withErrors($validator)->withInput();
+        } else {
+            Mail::to('thiagoalves@ltdeveloper.com.br')->send(new SendMailUser());
+            return redirect()->route('home', ['#contact'])->withErrors(["message" => "E-mail enviado com sucesso!"]);
+        }
     }
 }

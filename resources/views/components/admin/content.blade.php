@@ -8,7 +8,6 @@
             </div>
         </div>
 
-
         @extends('admin.pages.'.$path)
     </div>
 </main>

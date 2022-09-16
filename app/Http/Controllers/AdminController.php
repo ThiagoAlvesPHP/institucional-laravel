@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -14,6 +15,7 @@ class AdminController extends Controller
         $this->path = explode("/", $request->path());
         $this->path = (count($this->path) > 1)?$this->path[1]:$this->path[0];
         $this->array['path'] = $this->path;
+        $this->array['data'] = [];
     }
 
     public function index(Request $request)
@@ -24,6 +26,7 @@ class AdminController extends Controller
 
     public function banner(Request $request)
     {
+        $this->array['data']['banner'] = Banner::find(1);
 
         return view('admin.home', $this->array);
     }
