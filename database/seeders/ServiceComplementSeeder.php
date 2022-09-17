@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-use App\Models\Service;
+use App\Models\Services;
 use App\Models\ServiceComplement;
 
 class ServiceComplementSeeder extends Seeder
@@ -16,7 +16,7 @@ class ServiceComplementSeeder extends Seeder
      */
     public function run()
     {
-        $service = Service::find(1);
+        $service = Services::find(1);
         $array =  [
             ['service_id' => $service->id, 'image' => '<i class="fas fa-desktop"></i>', 'text' => 'Site Institucional'],
             ['service_id' => $service->id, 'image' => '<i class="fas fa-store-alt"></i>', 'text' => 'E-commerce'],

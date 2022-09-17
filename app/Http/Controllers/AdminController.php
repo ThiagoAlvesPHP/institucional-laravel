@@ -6,6 +6,7 @@ use App\Models\Aboult;
 use App\Models\Banner;
 use App\Models\Products;
 use App\Models\Projects;
+use App\Models\Services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -33,11 +34,10 @@ class AdminController extends Controller
 
         return view('admin.home', $this->array);
     }
-
     /**
      * update banner
      */
-    public function bannerUpdate(Request $request)
+    public function bannerUpdate($id, Request $request)
     {
         if ($request->method() == 'POST') {
             $rulesFormOne = [
@@ -53,7 +53,7 @@ class AdminController extends Controller
                 return redirect()->route('banner')->withErrors($validator)->withInput();
             }
 
-            Banner::find(1)->update($validator->validated());
+            Banner::find($id)->update($validator->validated());
             return redirect()->route('banner')->with('status', 'Successfully updated!');
         }
     }
@@ -97,5 +97,68 @@ class AdminController extends Controller
         $this->array['data']['projects'] = Projects::all();
 
         return view('admin.home', $this->array);
+    }
+    /**
+     * page update project
+     */
+    public function project($id, Request $request)
+    {
+        $project = Projects::find($id);
+        if (!$project) {
+            return redirect()->route('projects');
+        }
+
+        $this->array['data']['project'] = $project;
+        return view('admin.home', $this->array);
+    }
+    /**
+     * action update project
+     */
+    public function projectUpdate($id, Request $request)
+    {
+        $rulesFormOne = [
+            'name'      => 'required|min:3'
+        ];
+
+        $validator = Validator::make($request->all(), $rulesFormOne);
+
+        if($validator->fails()) {
+            return redirect()->route('project', ['id' => $id])->withErrors($validator)->withInput();
+        }
+
+        Projects::find($id)->update($validator->validated());
+        return redirect()->route('project', ['id' => $id])->with('status', 'Successfully updated!');
+    }
+
+    /**
+     * page services
+     */
+    public function services()
+    {
+        $this->array['data']['services'] = Services::find(1);
+
+        return view('admin.home', $this->array);
+    }
+    /**
+     * action update services
+     */
+    public function servicesUpdate($id, Request $request)
+    {
+        $rulesFormOne = [
+            'name'          => 'required|min:3',
+            'text'          => 'required|min:30',
+            'link'          => 'required|min:1',
+            'link_text'     => 'required|min:5',
+            'link_icon'     => 'required|min:5'
+        ];
+
+        $validator = Validator::make($request->all(), $rulesFormOne);
+
+        if($validator->fails()) {
+            return redirect()->route('services')->withErrors($validator)->withInput();
+        }
+
+        Services::find($id)->update($validator->validated());
+        return redirect()->route('services')->with('status', 'Successfully updated!');
     }
 }

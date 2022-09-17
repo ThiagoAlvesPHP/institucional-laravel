@@ -17,16 +17,10 @@
                 </div>
             @endif
 
-            <form action="{{ route('banner.update', [$data['banner']->id]) }}" method="post">
+            <form action="{{ route('project.update', ['id' => $data['project']->id]) }}" method="post">
                 @csrf
-                <label for="title">Título</label>
-                <input type="text" name="title" id="title" class="@error('title') is-invalid @enderror form-control" value="{{ $data['banner']->title ?? '' }}">
-                <label for="text">Descrição</label>
-                <textarea name="text" id="text" cols="30" class="@error('text') is-invalid @enderror form-control" rows="10">{{ $data['banner']->text ?? '' }}</textarea>
-                <label for="link">Link</label>
-                <input type="text" name="link" id="link" class="@error('link') is-invalid @enderror form-control" value="{{ $data['banner']->link ?? '' }}">
-                <label for="link_text">Texto de Link</label>
-                <input type="text" name="link_text" id="link_text" class="@error('link_text') is-invalid @enderror form-control" value="{{ $data['banner']->link_text ?? '' }}">
+                <label for="name">Projeto</label>
+                <input type="text" name="name" id="name" class="@error('name') is-invalid @enderror form-control" value="{{ $data['project']->name ?? '' }}">
                 <br />
                 <div class="d-grid">
                     <button class="btn btn-outline-success">Salvar</button>
@@ -34,7 +28,7 @@
             </form>
         </div>
         <div class="col">
-            <img src="{{ asset('assets/images/'.$data['banner']->image ?? '') }}" class="img-fluid" alt="...">
+            <img src="{{ asset('assets/images/projects/'.$data['project']->image ?? '') }}" class="img-fluid" width="100%" alt="{{ $data['project']->name ?? '' }}">
             <form action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="file" class="file" name="image" id="file">

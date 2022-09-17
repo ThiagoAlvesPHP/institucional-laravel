@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Config;
 use App\Models\Banner;
 use App\Models\Aboult;
-use App\Models\Service;
+use App\Models\Services;
 use App\Models\Products;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         Banner::factory(1)->create();
         Aboult::factory(1)->create();
         $this->call(ProjectsSeeder::class);
-        Service::factory(1)->create();
+        Services::factory(1)->create();
         $this->call(ServiceComplementSeeder::class);
         Products::factory(10)->create();
         $this->call(ConfigSocialSeeder::class);

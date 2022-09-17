@@ -16,7 +16,7 @@ class ForeignkeyServiceComplementTable extends Migration
         Schema::table('service_complement', function (Blueprint $table) {
             $table->foreign('service_id')
                 ->references('id')
-                ->on('service');
+                ->on('services');
         });
     }
 

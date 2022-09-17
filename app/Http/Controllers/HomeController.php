@@ -9,7 +9,7 @@ use App\Models\Config;
 use App\Models\Banner;
 use App\Models\Aboult;
 use App\Models\Projects;
-use App\Models\Service;
+use App\Models\Services;
 use App\Models\ServiceComplement;
 use App\Models\Products;
 use App\Models\ConfigSocial;
@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $array = array();
 
-        $service = Service::find(1);
+        $service = Services::find(1);
 
         $service_complement = ServiceComplement::all()->where('service_id', $service->id);
         $service['icons'] = $service_complement;
@@ -47,7 +47,7 @@ class HomeController extends Controller
     {
         $array = array();
 
-        $service = Service::find(1);
+        $service = Services::find(1);
 
         $service_complement = ServiceComplement::all()->where('service_id', $service->id);
         $service['icons'] = $service_complement;

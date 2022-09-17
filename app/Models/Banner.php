@@ -10,5 +10,5 @@ class Banner extends Model
     use HasFactory;
 
     protected $table = 'banner';
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'text', 'link', 'link_text', 'image'];
 }
