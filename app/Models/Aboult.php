@@ -10,4 +10,6 @@ class Aboult extends Model
     use HasFactory;
 
     protected $table = 'aboult';
+    protected $fillable = ['name'];
+
 }

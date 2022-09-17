@@ -23,9 +23,15 @@ Route::prefix('/')->group(function () {
 
 Route::prefix('/admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+
     Route::get('/banner', [AdminController::class, 'banner'])->name('banner');
-    Route::get('/aboult', [AdminController::class, 'index'])->name('aboult');
-    Route::get('/projects', [AdminController::class, 'index'])->name('projects');
+    Route::post('/banner/update', [AdminController::class, 'bannerUpdate'])->name('banner.update');
+
+    Route::get('/aboult', [AdminController::class, 'aboult'])->name('aboult');
+    Route::post('/aboult/update', [AdminController::class, 'aboultUpdate'])->name('aboult.update');
+
+    Route::get('/projects', [AdminController::class, 'projects'])->name('projects');
+
     Route::get('/services', [AdminController::class, 'index'])->name('services');
     Route::get('/products', [AdminController::class, 'index'])->name('products');
     Route::get('/config', [AdminController::class, 'index'])->name('config');

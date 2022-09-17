@@ -10,21 +10,6 @@
     <link rel="stylesheet/less" type="text/css" href="{{ URL::asset('assets/css/admin/styles.less') }}" />
     <link href="{{ URL::asset('assets/libs/bootstrap5/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="{{ URL::asset('assets/js/jquery.min.js') }}"></script>
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
