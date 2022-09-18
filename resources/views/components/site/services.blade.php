@@ -15,7 +15,7 @@
             @endforeach
         </div>
 
-        <a href="<?=$data['link'] ?? ''; ?>" class="link">
+        <a href="{{$data->link ?? ''}}" class="link">
             <i class="<?=$data->link_icon ?? ''; ?>"></i>
             <?=$data->link_text ?? ''; ?>
         </a>

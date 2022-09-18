@@ -18,7 +18,7 @@ class ServicesFactory extends Factory
             'text'      => 'Atuando com desenvolvimento de sites, lojas virtuais e aplicativos, criamos soluções customizadas para a necessidade da sua empresa.',
             'link'      => '#',
             'link_text' => 'Marcar uma call',
-            'link_icon' => '<i class="fas fa-phone"></i>',
+            'link_icon' => 'fas fa-phone',
             'image'     => 'service.png'
         ];
     }

@@ -4,7 +4,7 @@
             <li class="list-group-item list-group-item-action list-group-item-info">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('project', ['id' => $value->id]); }}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                        <a href="{{ route('project', ['id' => $value->id]); }}" class="btn btn-sm btn-outline-secondary">{{__('Edit')}}</a>
                     </div>
                     <div class="col">{{ $value->name ?? '' }}</div>
                     <div class="col">

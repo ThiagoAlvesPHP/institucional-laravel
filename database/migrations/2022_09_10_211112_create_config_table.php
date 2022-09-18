@@ -18,10 +18,11 @@ class CreateConfigTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->string('address_zipcode');
             $table->string('address');
-            $table->string('address_number');
+            $table->string('address_number')->nullable();
             $table->string('address_district');
-            $table->string('complement');
+            $table->string('complement')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('country');
@@ -30,8 +31,6 @@ class CreateConfigTable extends Migration
             $table->string('favicon');
             $table->string('title');
             $table->string('text');
-            $table->string('metas')->nullable();
-            $table->string('scripts')->nullable();
             $table->string('keywords')->nullable();
             $table->timestamps();
         });

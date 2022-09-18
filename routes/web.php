@@ -45,7 +45,12 @@ Route::prefix('/admin')->group(function () {
     Route::post('/services/update/{id}', [AdminController::class, 'servicesUpdate'])->name('services.update');
 
     Route::get('/products', [AdminController::class, 'index'])->name('products');
-    Route::get('/config', [AdminController::class, 'index'])->name('config');
+
+    Route::get('/config', [AdminController::class, 'config'])->name('config');
+    Route::post('/config/update/{id}', [AdminController::class, 'configUpdate'])->name('config.update');
+    Route::post('/config/metas/register/{id}', [AdminController::class, 'configMetasRegister'])->name('config.metas.register');
+    Route::get('/config/meta/delete/{id}', [AdminController::class, 'configMetaDelete'])->name('config.meta.delete');
+
 });
 
 /**

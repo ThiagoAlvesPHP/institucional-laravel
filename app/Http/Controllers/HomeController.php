@@ -13,6 +13,7 @@ use App\Models\Services;
 use App\Models\ServiceComplement;
 use App\Models\Products;
 use App\Models\ConfigSocial;
+use App\Models\CofigMetas;
 
 use App\Mail\SendMailUser;
 
@@ -20,45 +21,49 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
+    private $array = [];
+
+    public function __construct()
+    {
+        $this->array['data'] = [];
+        $this->array['data']['config'] = Config::find(1);
+    }
     //
     public function index(Request $request)
     {
-        $array = array();
-
         $service = Services::find(1);
 
         $service_complement = ServiceComplement::all()->where('service_id', $service->id);
         $service['icons'] = $service_complement;
 
-        $array['config'] = Config::find(1);
-        $array['banner'] = Banner::find(1);
-        $array['aboult'] = Aboult::find(1);
-        $array['projects'] = Projects::all();
-        $array['service'] = $service;
-        $array['products'] = Products::all();
-        $array['config_social'] = ConfigSocial::all()->where("status", '1');
+        $this->array['config'] = Config::find(1);
+        $this->array['banner'] = Banner::find(1);
+        $this->array['aboult'] = Aboult::find(1);
+        $this->array['projects'] = Projects::all();
+        $this->array['service'] = $service;
+        $this->array['products'] = Products::all();
+        $this->array['config_social'] = ConfigSocial::all()->where("status", '1');
+        $this->array['metas'] = CofigMetas::all();
 
-        return view('home', $array);
+        return view('home', $this->array);
     }
     /**
      * contact form
      */
     public function mail(Request $request)
     {
-        $array = array();
-
         $service = Services::find(1);
 
         $service_complement = ServiceComplement::all()->where('service_id', $service->id);
         $service['icons'] = $service_complement;
 
-        $array['config'] = Config::find(1);
-        $array['banner'] = Banner::find(1);
-        $array['aboult'] = Aboult::find(1);
-        $array['projects'] = Projects::all();
-        $array['service'] = $service;
-        $array['products'] = Products::all();
-        $array['config_social'] = ConfigSocial::all()->where("status", '1');
+        $this->array['config'] = Config::find(1);
+        $this->array['banner'] = Banner::find(1);
+        $this->array['aboult'] = Aboult::find(1);
+        $this->array['projects'] = Projects::all();
+        $this->array['service'] = $service;
+        $this->array['products'] = Products::all();
+        $this->array['config_social'] = ConfigSocial::all()->where("status", '1');
 
         $rules = [
             'name'      => 'required|min:3',

@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="row">
         <div class="col text-social">
-            <img src="assets/<?=$data->logo_dark; ?>" width="150" alt="Logo">
+            <img src="{{ asset('assets/'.$data->logo_dark) }}" width="150" alt="Logo">
             <p class="text"><?=$data->text; ?></p>
             <div class="social">
                 @if ($configSocial)
@@ -16,9 +16,12 @@
         <div class="col text-contact">
             <p class="title">Fale Conosco</p>
             <div class="texts">
-                <p class="address"><?=$data->state ?></p>
-                <p class="address"><?=$data->address.' '.$data->address_number.' '.$data->complement ?></p>
-                <p class="address"><?=$data->address_district ?> - <?=$data->city ?></p>
+                <p class="address">
+                    {{$data->address}} {{$data->address_number}} {{$data->complement}}
+                </p>
+                <p class="address">
+                    {{$data->address_district}} - {{$data->city }}/{{$data->state ?? '' }}
+                </p>
             </div>
             <p class="title">Comercial</p>
             <div class="texts">

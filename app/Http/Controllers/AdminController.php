@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Aboult;
 use App\Models\Banner;
+use App\Models\Config;
+use App\Models\CofigMetas;
 use App\Models\Products;
 use App\Models\Projects;
 use App\Models\Services;
@@ -21,6 +23,7 @@ class AdminController extends Controller
         $this->path = (count($this->path) > 1)?$this->path[1]:$this->path[0];
         $this->array['path'] = $this->path;
         $this->array['data'] = [];
+        $this->array['data']['config'] = Config::find(1);
     }
 
     public function index(Request $request)
@@ -39,23 +42,21 @@ class AdminController extends Controller
      */
     public function bannerUpdate($id, Request $request)
     {
-        if ($request->method() == 'POST') {
-            $rulesFormOne = [
-                'title'      => 'required|min:3',
-                'text'     => 'required|min:30',
-                'link'   => 'required|min:1',
-                'link_text'     => 'required|min:5'
-            ];
+        $rulesFormOne = [
+            'title'      => 'required|min:3',
+            'text'     => 'required|min:30',
+            'link'   => 'required|min:1',
+            'link_text'     => 'required|min:5'
+        ];
 
-            $validator = Validator::make($request->all(), $rulesFormOne);
+        $validator = Validator::make($request->all(), $rulesFormOne);
 
-            if($validator->fails()) {
-                return redirect()->route('banner')->withErrors($validator)->withInput();
-            }
-
-            Banner::find($id)->update($validator->validated());
-            return redirect()->route('banner')->with('status', 'Successfully updated!');
+        if($validator->fails()) {
+            return redirect()->route('banner')->withErrors($validator)->withInput();
         }
+
+        Banner::find($id)->update($validator->validated());
+        return redirect()->route('banner')->with('status', 'Successfully updated!');
     }
 
     /**
@@ -72,21 +73,19 @@ class AdminController extends Controller
      */
     public function aboultUpdate(Request $request)
     {
-        if ($request->method() == 'POST') {
-            $rulesFormOne = [
-                'name'      => 'required|min:3',
-                'text'     => 'required|min:30'
-            ];
+        $rulesFormOne = [
+            'name'      => 'required|min:3',
+            'text'     => 'required|min:30'
+        ];
 
-            $validator = Validator::make($request->all(), $rulesFormOne);
+        $validator = Validator::make($request->all(), $rulesFormOne);
 
-            if($validator->fails()) {
-                return redirect()->route('aboult')->withErrors($validator)->withInput();
-            }
-
-            Aboult::find(1)->update($validator->validated());
-            return redirect()->route('aboult')->with('status', 'Successfully updated!');
+        if($validator->fails()) {
+            return redirect()->route('aboult')->withErrors($validator)->withInput();
         }
+
+        Aboult::find(1)->update($validator->validated());
+        return redirect()->route('aboult')->with('status', 'Successfully updated!');
     }
 
     /**
@@ -160,5 +159,81 @@ class AdminController extends Controller
 
         Services::find($id)->update($validator->validated());
         return redirect()->route('services')->with('status', 'Successfully updated!');
+    }
+
+
+    /**
+     * page config
+     */
+    public function config()
+    {
+        $this->array['data']['config'] = Config::find(1);
+        $this->array['data']['metas'] = CofigMetas::all();
+
+        return view('admin.home', $this->array);
+    }
+    /**
+     * action update config
+     */
+    public function configUpdate($id, Request $request)
+    {
+
+        if ($request->input('update-address')) {
+            $rulesFormOne = [
+                'name'              => 'required|min:3',
+                'email'             => 'required|email',
+                'phone'             => 'required|min:10',
+                'address'           => 'required|min:3',
+                'address_number'    => '',
+                'address_district'  => 'required|min:3',
+                'complement'        => '',
+                'city'              => 'required|min:3',
+                'state'             => 'required|min:2',
+                'country'           => 'required|min:3'
+            ];
+        }
+        if ($request->input('update-head')) {
+            $rulesFormOne = [
+                'title'              => 'required|min:3',
+                'text'             => 'required|min:30',
+                'keywords'             => 'required|min:3',
+            ];
+        }
+
+        $validator = Validator::make($request->all(), $rulesFormOne);
+
+        if($validator->fails()) {
+            return redirect()->route('config')->withErrors($validator)->withInput();
+        }
+
+        Config::find($id)->update($validator->validated());
+        return redirect()->route('config')->with('status', 'Successfully updated!');
+    }
+    /**
+     * register metas
+     */
+    public function configMetasRegister($id, Request $request)
+    {
+        $rulesFormOne = [
+            'property'              => 'required|min:3',
+            'content'             => 'required|min:3'
+        ];
+
+        $validator = Validator::make($request->all(), $rulesFormOne);
+
+        if($validator->fails()) {
+            return redirect()->route('config')->withErrors($validator)->withInput();
+        }
+
+        CofigMetas::create($validator->validated());
+        return redirect()->route('config')->with('status', 'Successfully registered!');
+    }
+    /**
+     * delete meta
+     */
+    public function configMetaDelete($id)
+    {
+        CofigMetas::find($id)->delete();
+        return redirect()->route('config')->with('status', 'Successfully deleted!');
     }
 }
