@@ -38,5 +38,5 @@
     </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/less"></script>
-<script src="assets/js/jquery.mask.js"></script>
-<script src="assets/js/slick.min.js"></script>
+<script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
+<script src="{{ asset('assets/js/slick.min.js') }}"></script>

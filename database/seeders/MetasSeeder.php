@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\CofigMetas;
+use App\Models\ConfigMetas;
 
 class MetasSeeder extends Seeder
 {
@@ -24,7 +24,7 @@ class MetasSeeder extends Seeder
         ];
 
         foreach ($array as $value) {
-            CofigMetas::create($value);
+            ConfigMetas::create($value);
         }
     }
 }

@@ -13,7 +13,7 @@ use App\Models\Services;
 use App\Models\ServiceComplement;
 use App\Models\Products;
 use App\Models\ConfigSocial;
-use App\Models\CofigMetas;
+use App\Models\ConfigMetas;
 
 use App\Mail\SendMailUser;
 
@@ -43,7 +43,7 @@ class HomeController extends Controller
         $this->array['service'] = $service;
         $this->array['products'] = Products::all();
         $this->array['config_social'] = ConfigSocial::all()->where("status", '1');
-        $this->array['metas'] = CofigMetas::all();
+        $this->array['metas'] = ConfigMetas::all();
 
         return view('home', $this->array);
     }

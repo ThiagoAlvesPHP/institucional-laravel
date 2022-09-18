@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Aboult;
 use App\Models\Banner;
 use App\Models\Config;
-use App\Models\CofigMetas;
+use App\Models\ConfigMetas;
 use App\Models\Products;
 use App\Models\Projects;
 use App\Models\Services;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -24,10 +26,13 @@ class AdminController extends Controller
         $this->array['path'] = $this->path;
         $this->array['data'] = [];
         $this->array['data']['config'] = Config::find(1);
+
+        // var_dump(Auth::user());
     }
 
     public function index(Request $request)
     {
+        // var_dump(Auth::user()->name);
         return view('admin.home', $this->array);
     }
 
@@ -42,21 +47,47 @@ class AdminController extends Controller
      */
     public function bannerUpdate($id, Request $request)
     {
-        $rulesFormOne = [
-            'title'      => 'required|min:3',
-            'text'     => 'required|min:30',
-            'link'   => 'required|min:1',
-            'link_text'     => 'required|min:5'
-        ];
+        $banner = Banner::find($id);
+        // update image
+        if ($request->hasFile('image')) {
+            // validade upload success
+            if ($request->file('image')->isValid()) {
+                $extension = $request->image->extension();
+                // extension valide
+                if ($extension == "png" OR $extension == "jpeg" OR $extension == "jpg") {
+                    // create name image
+                    $image = $request->image->store('');
+                    // delete image directory
+                    unlink(public_path('assets/images/').$banner->image);
+                    // move image directory
+                    $request->image->move(public_path('assets/images/'), $image);
+                    $banner->image = $image;
+                    $banner->save();
 
-        $validator = Validator::make($request->all(), $rulesFormOne);
+                    return redirect()->route('banner')->with('status', 'Successfully updated!');
+                } else {
+                    return redirect()->route('banner')->with('status', 'Extension invalid!');
+                }
+            } else {
+                return redirect()->route('banner')->with('status', 'Problems uploading the image!');
+            }
+        } else {
+            $rulesFormOne = [
+                'title'      => 'required|min:3',
+                'text'     => 'required|min:30',
+                'link'   => 'required|min:1',
+                'link_text'     => 'required|min:5'
+            ];
 
-        if($validator->fails()) {
-            return redirect()->route('banner')->withErrors($validator)->withInput();
+            $validator = Validator::make($request->all(), $rulesFormOne);
+
+            if($validator->fails()) {
+                return redirect()->route('banner')->withErrors($validator)->withInput();
+            }
+
+            $banner->update($validator->validated());
+            return redirect()->route('banner')->with('status', 'Successfully updated!');
         }
-
-        Banner::find($id)->update($validator->validated());
-        return redirect()->route('banner')->with('status', 'Successfully updated!');
     }
 
     /**
@@ -168,7 +199,7 @@ class AdminController extends Controller
     public function config()
     {
         $this->array['data']['config'] = Config::find(1);
-        $this->array['data']['metas'] = CofigMetas::all();
+        $this->array['data']['metas'] = ConfigMetas::all();
 
         return view('admin.home', $this->array);
     }
@@ -225,7 +256,7 @@ class AdminController extends Controller
             return redirect()->route('config')->withErrors($validator)->withInput();
         }
 
-        CofigMetas::create($validator->validated());
+        ConfigMetas::create($validator->validated());
         return redirect()->route('config')->with('status', 'Successfully registered!');
     }
     /**
@@ -233,7 +264,16 @@ class AdminController extends Controller
      */
     public function configMetaDelete($id)
     {
-        CofigMetas::find($id)->delete();
+        ConfigMetas::find($id)->delete();
         return redirect()->route('config')->with('status', 'Successfully deleted!');
+    }
+
+    /**
+     * action logout
+     */
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

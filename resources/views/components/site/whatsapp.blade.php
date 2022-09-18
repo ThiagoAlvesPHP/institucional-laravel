@@ -1,11 +1,11 @@
 <div class="zap-a">
-    <img class="img" src="assets/images/whatsapp/zap-a.png" alt="">
+    <img class="img" src="{{ asset('assets/images/whatsapp/zap-a.png') }}" alt="WhatsApp">
 </div>
 <div class="zap-a-content">
     <div class="title">
         <div class="row">
             <div class="col">
-                <img class="img" src="assets/images/whatsapp/zap-a.png" alt="">
+                <img class="img" src="{{ asset('assets/images/whatsapp/zap-a.png') }}" alt="WhatsApp">
                 <span>WhatsApp</span>
             </div>
             <div class="col">
@@ -17,10 +17,10 @@
     </div>
     <div class="content">
         <div class="whatsappme__message">
-            Possui alguma dúvida ou está interessado em nossos serviços? Fale conosco agora!
+            {{__('Do you have any questions or are you interested in our services? Talk to us now!')}}
         </div>
-        <a href="https://api.whatsapp.com/send?phone=5573999412514&text=Estou interessados em saber mais sobre seus serviços" target="_blank" class="btn-whatsapp close">
-            Enviar WhatsApp
+        <a href="https://api.whatsapp.com/send?phone={{trim($data->phone) ?? ''}}&text={{__('I am interested in knowing more about your services.')}}" target="_blank" class="btn-whatsapp close">
+            {{__('Send Whatsapp')}}
         </a>
     </div>
 </div>

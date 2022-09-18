@@ -35,5 +35,11 @@
     "Message":"Mensagem",
     "Delete":"Deletar",
     "Edit":"Editar",
-    "Successfully deleted!":"Deletado com sucesso!"
+    "Successfully deleted!":"Deletado com sucesso!",
+    "Do you have any questions or are you interested in our services? Talk to us now!":"Possui alguma dúvida ou está interessado em nossos serviços? Fale conosco agora!",
+    "Send Whatsapp":"Enviar Whatsapp",
+    "I am interested in knowing more about your services.":"Estou interessados em saber mais sobre seus serviços",
+    "Problems uploading the image!":"Problemas ao carregar a imagem!",
+    "Extension invalid!":"Extensão invalida!",
+    "Invalid email and/or password!":"E-mail e/ou senha invalidos!"
 }

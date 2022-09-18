@@ -9,6 +9,7 @@ use App\Models\Banner;
 use App\Models\Aboult;
 use App\Models\Services;
 use App\Models\Products;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,5 +29,6 @@ class DatabaseSeeder extends Seeder
         Products::factory(5)->create();
         $this->call(ConfigSocialSeeder::class);
         $this->call(MetasSeeder::class);
+        User::factory(1)->create();
     }
 }

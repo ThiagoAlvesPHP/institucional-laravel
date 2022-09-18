@@ -28,7 +28,7 @@ Route::prefix('/')->group(function () {
 /**
  * routes pages admin
  */
-Route::prefix('/admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
 
     Route::get('/banner', [AdminController::class, 'banner'])->name('banner');
@@ -51,9 +51,11 @@ Route::prefix('/admin')->group(function () {
     Route::post('/config/metas/register/{id}', [AdminController::class, 'configMetasRegister'])->name('config.metas.register');
     Route::get('/config/meta/delete/{id}', [AdminController::class, 'configMetaDelete'])->name('config.meta.delete');
 
+    Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 });
 
 /**
  * route login
  */
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('auth');

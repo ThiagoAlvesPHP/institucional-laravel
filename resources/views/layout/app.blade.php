@@ -38,7 +38,7 @@
         @yield('content')
     </main>
 
-    <x-site.whatsapp />
+    <x-site.whatsapp :data=$config />
 
     <x-site.footer :data=$config :configSocial=$config_social/>
 </body>

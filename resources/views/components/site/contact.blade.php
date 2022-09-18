@@ -13,21 +13,21 @@
         @csrf
         <div class="group-inputs">
             <div class="inputs">
-                <input type="text" placeholder="{{__('Name')}}" name="name" class="input" id="name" value="{{old('name')}}" required>
+                <input type="text" placeholder="{{__('Name')}}" name="name" class="input @error('name') is-invalid @enderror" id="name" value="{{old('name')}}" required>
             </div>
             <div class="inputs">
-                <input type="email" placeholder="{{__('Email')}}" name="email" class="input" value="{{old('email')}}" id="email" required>
+                <input type="email" placeholder="{{__('Email')}}" name="email" class="input @error('email') is-invalid @enderror" value="{{old('email')}}" id="email" required>
             </div>
         </div>
         <div class="group-inputs">
             <div class="inputs">
-                <input type="text" placeholder="{{__('Subject')}}" name="subject" class="input" value="{{old('subject')}}" id="subject" required>
+                <input type="text" placeholder="{{__('Subject')}}" name="subject" class="input @error('subject') is-invalid @enderror" value="{{old('subject')}}" id="subject" required>
             </div>
             <div class="inputs">
-                <input type="text" placeholder="{{__('Contact')}}" class="input" name="phone" value="{{old('phone')}}" id="phone" required>
+                <input type="text" placeholder="{{__('Contact')}}" class="input @error('phone') is-invalid @enderror" name="phone" value="{{old('phone')}}" id="phone" required>
             </div>
         </div>
-        <textarea name="message" id="message" class="textarea" placeholder="{{__('Message')}}" cols="30" rows="10">{{old('message')}}</textarea>
+        <textarea name="message" id="message" class="textarea @error('message') is-invalid @enderror" placeholder="{{__('Message')}}" cols="30" rows="10">{{old('message')}}</textarea>
         <button class="btn link">Enviar</button>
     </form>
 </section>
