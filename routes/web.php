@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\AboultController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ConfigController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,25 +35,25 @@ Route::prefix('/')->group(function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
 
-    Route::get('/banner', [AdminController::class, 'banner'])->name('banner');
-    Route::post('/banner/update/{id}', [AdminController::class, 'bannerUpdate'])->name('banner.update');
+    Route::get('/banner', [BannerController::class, 'index'])->name('banner');
+    Route::post('/banner/update/{id}', [BannerController::class, 'update'])->name('banner.update');
 
-    Route::get('/aboult', [AdminController::class, 'aboult'])->name('aboult');
-    Route::post('/aboult/update', [AdminController::class, 'aboultUpdate'])->name('aboult.update');
+    Route::get('/aboult', [AboultController::class, 'index'])->name('aboult');
+    Route::post('/aboult/update', [AboultController::class, 'update'])->name('aboult.update');
 
-    Route::get('/projects', [AdminController::class, 'projects'])->name('projects');
-    Route::get('/project/{id}', [AdminController::class, 'project'])->name('project');
-    Route::post('/project/update/{id}', [AdminController::class, 'projectUpdate'])->name('project.update');
+    Route::get('/projects', [ProjectsController::class, 'index'])->name('projects');
+    Route::get('/project/{id}', [ProjectsController::class, 'project'])->name('project');
+    Route::post('/project/update/{id}', [ProjectsController::class, 'update'])->name('project.update');
 
-    Route::get('/services', [AdminController::class, 'services'])->name('services');
-    Route::post('/services/update/{id}', [AdminController::class, 'servicesUpdate'])->name('services.update');
+    Route::get('/services', [ServicesController::class, 'index'])->name('services');
+    Route::post('/services/update/{id}', [ServicesController::class, 'update'])->name('services.update');
 
     Route::get('/products', [AdminController::class, 'index'])->name('products');
 
-    Route::get('/config', [AdminController::class, 'config'])->name('config');
-    Route::post('/config/update/{id}', [AdminController::class, 'configUpdate'])->name('config.update');
-    Route::post('/config/metas/register/{id}', [AdminController::class, 'configMetasRegister'])->name('config.metas.register');
-    Route::get('/config/meta/delete/{id}', [AdminController::class, 'configMetaDelete'])->name('config.meta.delete');
+    Route::get('/config', [ConfigController::class, 'index'])->name('config');
+    Route::post('/config/update/{id}', [ConfigController::class, 'update'])->name('config.update');
+    Route::post('/config/metas/register/{id}', [ConfigController::class, 'configMetasRegister'])->name('config.metas.register');
+    Route::get('/config/meta/delete/{id}', [ConfigController::class, 'configMetaDelete'])->name('config.meta.delete');
 
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 });
