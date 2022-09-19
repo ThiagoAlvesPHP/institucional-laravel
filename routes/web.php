@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('/banner/update/{id}', [BannerController::class, 'update'])->name('banner.update');
 
     Route::get('/aboult', [AboultController::class, 'index'])->name('aboult');
-    Route::post('/aboult/update', [AboultController::class, 'update'])->name('aboult.update');
+    Route::post('/aboult/update/{id}', [AboultController::class, 'update'])->name('aboult.update');
 
     Route::get('/projects', [ProjectsController::class, 'index'])->name('projects');
     Route::get('/project/{id}', [ProjectsController::class, 'project'])->name('project');

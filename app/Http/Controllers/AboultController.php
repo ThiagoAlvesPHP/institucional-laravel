@@ -35,20 +35,47 @@ class AboultController extends Controller
     /**
      * update aboult
      */
-    public function update(Request $request)
+    public function update($id, Request $request)
     {
-        $rulesFormOne = [
-            'name'      => 'required|min:3',
-            'text'     => 'required|min:30'
-        ];
+        $aboult = Aboult::find($id);
 
-        $validator = Validator::make($request->all(), $rulesFormOne);
+        // update image
+        if ($request->hasFile('image')) {
+            // validade upload success
+            if ($request->file('image')->isValid()) {
+                $extension = $request->image->extension();
+                // extension valide
+                if ($extension == "png" OR $extension == "jpeg" OR $extension == "jpg") {
+                    // create name image
+                    $image = $request->image->store('');
+                    // delete image directory
+                    unlink(public_path('assets/images/').$aboult->image);
+                    // move image directory
+                    $request->image->move(public_path('assets/images/'), $image);
+                    $aboult->image = $image;
+                    $aboult->save();
 
-        if($validator->fails()) {
-            return redirect()->route('aboult')->withErrors($validator)->withInput();
+                    return redirect()->route('aboult')->with('status', 'Successfully updated!');
+                } else {
+                    return redirect()->route('aboult')->with('status', 'Extension invalid!');
+                }
+            } else {
+                return redirect()->route('aboult')->with('status', 'Problems uploading the image!');
+            }
+        } else {
+            $rulesFormOne = [
+                'name'      => 'required|min:3',
+                'text'     => 'required|min:30'
+            ];
+
+            $validator = Validator::make($request->all(), $rulesFormOne);
+
+            if($validator->fails()) {
+                return redirect()->route('aboult')->withErrors($validator)->withInput();
+            }
+
+            $aboult->find(1)->update($validator->validated());
+            return redirect()->route('aboult')->with('status', 'Successfully updated!');
         }
-
-        Aboult::find(1)->update($validator->validated());
-        return redirect()->route('aboult')->with('status', 'Successfully updated!');
     }
 }

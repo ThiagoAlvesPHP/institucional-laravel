@@ -49,17 +49,44 @@ class ProjectsController extends Controller
      */
     public function update($id, Request $request)
     {
-        $rulesFormOne = [
-            'name'      => 'required|min:3'
-        ];
+        $project = Projects::find($id);
 
-        $validator = Validator::make($request->all(), $rulesFormOne);
+        // update image
+        if ($request->hasFile('image')) {
+            // validade upload success
+            if ($request->file('image')->isValid()) {
+                $extension = $request->image->extension();
+                // extension valide
+                if ($extension == "png" OR $extension == "jpeg" OR $extension == "jpg") {
+                    // create name image
+                    $image = $request->image->store('');
+                    // delete image directory
+                    unlink(public_path('assets/images/projects/').$project->image);
+                    // move image directory
+                    $request->image->move(public_path('assets/images/projects/'), $image);
+                    $project->image = $image;
+                    $project->save();
 
-        if($validator->fails()) {
-            return redirect()->route('project', ['id' => $id])->withErrors($validator)->withInput();
+                    return redirect()->route('project', [$id])->with('status', 'Successfully updated!');
+                } else {
+                    return redirect()->route('project', [$id])->with('status', 'Extension invalid!');
+                }
+            } else {
+                return redirect()->route('project', [$id])->with('status', 'Problems uploading the image!');
+            }
+        } else {
+            $rulesFormOne = [
+                'name'      => 'required|min:3'
+            ];
+
+            $validator = Validator::make($request->all(), $rulesFormOne);
+
+            if($validator->fails()) {
+                return redirect()->route('project', ['id' => $id])->withErrors($validator)->withInput();
+            }
+
+            $project->find($id)->update($validator->validated());
+            return redirect()->route('project', ['id' => $id])->with('status', 'Successfully updated!');
         }
-
-        Projects::find($id)->update($validator->validated());
-        return redirect()->route('project', ['id' => $id])->with('status', 'Successfully updated!');
     }
 }

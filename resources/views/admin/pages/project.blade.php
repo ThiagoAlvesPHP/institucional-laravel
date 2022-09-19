@@ -29,7 +29,7 @@
         </div>
         <div class="col">
             <img src="{{ asset('assets/images/projects/'.$data['project']->image ?? '') }}" class="img-fluid" width="100%" alt="{{ $data['project']->name ?? '' }}">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="{{ route('project.update', ['id' => $data['project']->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="file" class="file" name="image" id="file">
                 <label for="file">Subir Arquivo</label>
