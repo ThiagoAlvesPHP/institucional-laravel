@@ -1,4 +1,4 @@
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
+<section class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
     @if($errors->any())
         @foreach ($errors->all() as $error)
             <x-site.alert>
@@ -89,7 +89,9 @@
                 </div>
             </form>
         </div>
-
+    </div>
+    <hr>
+    <div class="row">
         <div class="col">
             <h4 class="title">{{__('Metas')}}</h4>
 
@@ -122,8 +124,47 @@
                 @endforeach
             </ul>
         </div>
+        <div class="col">
+            <h4 class="title">{{__('Social')}}</h4>
+            <form action="{{ route('config.metas.register', [$data['config']->id]) }}" method="post">
+                @csrf
+                <label for="name">{{__('Name')}}</label>
+                <input type="text" name="name" required id="name" class="@error('name') is-invalid @enderror form-control" value="{{ old('name') }}">
+                <label for="link">{{__('Link')}}</label>
+                <input type="text" name="link" required id="link" class="@error('link') is-invalid @enderror form-control" value="{{ old('link') }}">
+                <label for="icon">{{__('Icon')}}</label>
+                <input type="file" name="icon" required id="icon" class="@error('icon') is-invalid @enderror form-control" value="{{ old('icon') }}">
+
+                <br>
+                <div class="d-grid">
+                    <button name="register-metas" value="1" class="btn btn-outline-success">Salvar</button>
+                </div>
+
+                <hr>
+                <ul class="list-group">
+                    @foreach ($data['social'] as $value)
+                        <li class="list-group-item list-group-item-action list-group-item-info">
+                            <div class="row">
+                                <div class="col">
+                                    <a href="{{route('config.social.edit', [$value->id])}}" class="btn btn-sm btn-outline-primary">{{__('Edit')}}</a>
+
+                                    <a class="btn btn-sm btn-outline-danger">{{__('Delete')}}</a>
+                                </div>
+                                <div class="col">{{ $value->name ?? '' }}</div>
+                                <div class="col">{{ $value->link ?? '' }}</div>
+                                <div class="col">
+                                    <img width="25" src="{{ asset('assets/images/icons/'.$value->icon); }}" alt="">
+                                </div>
+                                <div class="col"><a href="{{ route('condig.social.status', [$value->id]) }}">{{ $value->status == 1 ? __('Active') :__('Inactive') }}</a></div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </form>
+        </div>
     </div>
 
+    <hr>
     <script src="{{ asset('assets/js/custom/viacep.js') }}"></script>
     <script src="{{ asset('assets/js/custom/admin.config.js') }}"></script>
-</main>
+</section>

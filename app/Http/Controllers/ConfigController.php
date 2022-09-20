@@ -30,6 +30,7 @@ class ConfigController extends Controller
     {
         $this->array['data']['config'] = Config::find(1);
         $this->array['data']['metas'] = ConfigMetas::all();
+        $this->array['data']['social'] = ConfigSocial::all();
 
         return view('admin.home', $this->array);
     }
@@ -38,7 +39,6 @@ class ConfigController extends Controller
      */
     public function update($id, Request $request)
     {
-
         if ($request->input('update-address')) {
             $rulesFormOne = [
                 'name'              => 'required|min:3',
@@ -73,7 +73,7 @@ class ConfigController extends Controller
     /**
      * register metas
      */
-    public function configMetasRegister($id, Request $request)
+    public function configMetasRegister(Request $request)
     {
         $rulesFormOne = [
             'property'              => 'required|min:3',
@@ -96,5 +96,25 @@ class ConfigController extends Controller
     {
         ConfigMetas::find($id)->delete();
         return redirect()->route('config')->with('status', 'Successfully deleted!');
+    }
+    /**
+     * social done update
+     */
+    public function configSocialUpdateStatus($id)
+    {
+        $social = ConfigSocial::find($id);
+        $social->status = ($social->status == 1)?0:1;
+        $social->save();
+        return redirect()->route('config')->with('status', 'Successfully updated!');
+    }
+    /**
+     * social update
+     */
+    public function configSocialUpdate($id, Request $request)
+    {
+        $this->array['path'] = 'social';
+        $social = ConfigSocial::find($id);
+
+        return view('admin.home', $this->array);
     }
 }

@@ -1,4 +1,4 @@
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
+<section class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
     <div class="row">
         <div class="col">
             <h4 class="title">Atualizar</h4>
@@ -40,4 +40,4 @@
             </form>
         </div>
     </div>
-</main>
+</section>

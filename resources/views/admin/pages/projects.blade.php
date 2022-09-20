@@ -1,4 +1,4 @@
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
+<section class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
     <ul class="list-group">
         @foreach ($data['projects'] as $value)
             <li class="list-group-item list-group-item-action list-group-item-info">
@@ -14,4 +14,4 @@
             </li>
         @endforeach
     </ul>
-</main>
+</section>

@@ -1,4 +1,4 @@
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
+<section class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
     @if($errors->any())
         @foreach ($errors->all() as $error)
             <x-site.alert>
@@ -35,8 +35,8 @@
             <img src="{{ asset('assets/images/'.$data['banner']->image ?? '') }}" class="img-fluid" alt="...">
             <form action="{{ route('banner.update', [$data['banner']->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="file" class="file" name="image" id="file">
                 <label for="file">Subir Arquivo</label>
+                <input type="file" class="file form-control" name="image" id="file">
                 <br />
                 <div class="d-grid">
                     <button class="btn btn-outline-success">Salvar</button>
@@ -44,4 +44,4 @@
             </form>
         </div>
     </div>
-</main>
+</section>

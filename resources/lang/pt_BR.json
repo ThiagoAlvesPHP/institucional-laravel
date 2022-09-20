@@ -6,6 +6,7 @@
     "services": "Serviços",
     "products": "Produtos",
     "config": "Configurações",
+    "social":"Redes Sociais",
     "Previous Page": "Pagina Anterior",
     "Sign out": "Sair",
     "Email successfully sent": "E-mail enviado com sucesso!",
@@ -41,5 +42,8 @@
     "I am interested in knowing more about your services.":"Estou interessados em saber mais sobre seus serviços",
     "Problems uploading the image!":"Problemas ao carregar a imagem!",
     "Extension invalid!":"Extensão invalida!",
-    "Invalid email and/or password!":"E-mail e/ou senha invalidos!"
+    "Invalid email and/or password!":"E-mail e/ou senha invalidos!",
+    "Social":"Redes Sociais",
+    "Active":"Ativo",
+    "Inactive":"Inativo"
 }

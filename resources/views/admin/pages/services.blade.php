@@ -1,22 +1,20 @@
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
+<section class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
+    @if($errors->any())
+        @foreach ($errors->all() as $error)
+            <x-site.alert>
+                {{ $error }}
+            </x-site.alert>
+        @endforeach
+    @endif
+
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ __(session('status')) }}
+        </div>
+    @endif
     <div class="row">
         <div class="col">
             <h4 class="title">Atualizar</h4>
-
-            @if($errors->any())
-                @foreach ($errors->all() as $error)
-                    <x-site.alert>
-                        {{ $error }}
-                    </x-site.alert>
-                @endforeach
-            @endif
-
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ __(session('status')) }}
-                </div>
-            @endif
-
             <form action="{{ route('services.update', [$data['services']->id]) }}" method="post">
                 @csrf
                 <label for="name">Serviço</label>
@@ -55,4 +53,4 @@
             </form>
         </div>
     </div>
-</main>
+</section>
