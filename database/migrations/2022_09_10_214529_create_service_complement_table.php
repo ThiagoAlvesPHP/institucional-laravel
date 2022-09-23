@@ -16,7 +16,7 @@ class CreateServiceComplementTable extends Migration
         Schema::create('service_complement', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('service_id');
-            $table->string('image');
+            $table->string('icon');
             $table->string('text');
             $table->timestamps();
         });

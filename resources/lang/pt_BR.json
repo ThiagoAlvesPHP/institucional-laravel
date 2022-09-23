@@ -45,5 +45,7 @@
     "Invalid email and/or password!":"E-mail e/ou senha invalidos!",
     "Social":"Redes Sociais",
     "Active":"Ativo",
-    "Inactive":"Inativo"
+    "Inactive":"Inativo",
+    "service-icon":"Icones de Serviço",
+    "Update":"Atualizar"
 }

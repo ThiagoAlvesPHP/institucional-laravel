@@ -18,9 +18,9 @@ class ServiceComplementSeeder extends Seeder
     {
         $service = Services::find(1);
         $array =  [
-            ['service_id' => $service->id, 'image' => '<i class="fas fa-desktop"></i>', 'text' => 'Site Institucional'],
-            ['service_id' => $service->id, 'image' => '<i class="fas fa-store-alt"></i>', 'text' => 'E-commerce'],
-            ['service_id' => $service->id, 'image' => '<i class="fas fa-tachometer-alt"></i>', 'text' => 'Sistema Personalizado']
+            ['service_id' => $service->id, 'icon' => 'fas fa-desktop', 'text' => 'Site Institucional'],
+            ['service_id' => $service->id, 'icon' => 'fas fa-store-alt', 'text' => 'E-commerce'],
+            ['service_id' => $service->id, 'icon' => 'fas fa-tachometer-alt', 'text' => 'Sistema Personalizado']
         ];
 
         foreach ($array as $value) {

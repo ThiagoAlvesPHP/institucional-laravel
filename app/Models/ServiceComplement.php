@@ -10,4 +10,5 @@ class ServiceComplement extends Model
     use HasFactory;
 
     protected $table = 'service_complement';
+    protected $fillable = ['service_id', 'icon', 'text'];
 }

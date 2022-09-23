@@ -17,9 +17,9 @@
         <li>
             <a href="{{ route('home') }}#projects" class="link-menu">Projetos</a>
         </li>
-        <li>
+        {{-- <li>
             <a href="{{ route('home') }}#products" class="link-menu">Produtos</a>
-        </li>
+        </li> --}}
         <li>
             <a href="{{ route('home') }}#contact" class="link-menu">Contato</a>
         </li>

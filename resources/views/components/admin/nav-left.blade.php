@@ -31,12 +31,12 @@
                     Serviços
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('products') }}">
                     <span data-feather="layers"></span>
                     Produtos
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('config') }}">
                     <span data-feather="layers"></span>

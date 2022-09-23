@@ -9,8 +9,8 @@
         <div class="icons">
             @foreach ($data['icons'] as $value)
                 <div class="icon">
-                    <?=$value['image'] ?? '' ?>
-                    <p class="text"><?=$value['text'] ?? '' ?></p>
+                    <i class="{{$value->icon ?? ''}}"></i>
+                    <p class="text">{{$value->text ?? ''}}</p>
                 </div>
             @endforeach
         </div>

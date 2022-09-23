@@ -10,7 +10,7 @@
     {{-- Services --}}
     <x-site.services :data=$service />
     {{-- Products - Category --}}
-    <x-site.products :data=$products />
+    {{-- <x-site.products :data=$products /> --}}
     {{-- Contact --}}
     <x-site.contact />
 @endsection

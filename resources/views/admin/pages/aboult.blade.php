@@ -1,4 +1,6 @@
 <section class="col-md-9 ms-sm-auto col-lg-10 px-md-4 {{$path}}" id="{{$path}}">
+    <h4 class="title">{{__('Update')}}</h4>
+
     @if($errors->any())
         @foreach ($errors->all() as $error)
             <x-site.alert>
@@ -15,7 +17,6 @@
 
     <div class="row">
         <div class="col">
-            <h4 class="title">Atualizar</h4>
             <form action="{{ route('aboult.update', [$data['aboult']->id]) }}" method="post">
                 @csrf
                 <label for="name">Título</label>

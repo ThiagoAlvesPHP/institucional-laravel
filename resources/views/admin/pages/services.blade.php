@@ -42,9 +42,9 @@
         </div>
         <div class="col">
             <img src="{{ asset('assets/images/'.$data['services']->image ?? '') }}" class="img-fluid" width="100%" alt="{{ $data['services']->name ?? '' }}">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="{{ route('services.update', [$data['services']->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="file" class="file" name="image" id="file">
+                <input type="file" class="form-control" name="image" id="file">
                 <label for="file">Subir Arquivo</label>
                 <br />
                 <div class="d-grid">
@@ -53,4 +53,41 @@
             </form>
         </div>
     </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h4>Icones</h4>
+            <form action="{{ route('services.icon.register') }}" method="post">
+                @csrf
+                <input type="hidden" value="{{ $data['services']->id ?? '' }}" name="service_id" id="">
+                <label for="icon">{{__('Icon')}} - <small><a href="https://fontawesome.com/v5/search?m=free" target="_blank">Fontawesome</a> (Apenas a Class)</small></label>
+                <input type="text" id="icon" name="icon" class="form-control" required>
+                <label for="text-icon">{{__('Text')}}</label>
+                <input type="text" id="text-icon" name="text" class="form-control" required>
+
+                <br />
+                <div class="d-grid">
+                    <button class="btn btn-outline-success">Salvar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col">
+            <h4>Lista</h4>
+            <ul class="list-group">
+                @foreach ($data['icons'] as $value)
+                    <li class="list-group-item list-group-item-action list-group-item-info">
+                        <div class="row">
+                            <div class="col">
+                                <a href="{{ route('services.icon', ['id' => $value->id]); }}" class="btn btn-sm btn-outline-secondary">{{__('Edit')}}</a>
+                            </div>
+                            <div class="col"><i class="{{ $value->icon ?? '' }}"></i> <small>| Class: {{ $value->icon ?? '' }}</small></div>
+                            <div class="col">{{ $value->text ?? '' }}</div>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+    <hr>
 </section>

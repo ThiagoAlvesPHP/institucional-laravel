@@ -32,7 +32,7 @@
             <a href="{{ route('home') }}#home" class="link-menu">Home</a>
             <a href="{{ route('home') }}#aboult" class="link-menu">Sobre</a>
             <a href="{{ route('home') }}#projects" class="link-menu">Projetos</a>
-            <a href="{{ route('home') }}#products" class="link-menu">Produtos</a>
+            {{-- <a href="{{ route('home') }}#products" class="link-menu">Produtos</a> --}}
             <a href="{{ route('home') }}#contact" class="link-menu">Contato</a>
         </div>
     </div>

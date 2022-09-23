@@ -47,6 +47,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('/services', [ServicesController::class, 'index'])->name('services');
     Route::post('/services/update/{id}', [ServicesController::class, 'update'])->name('services.update');
+    Route::post('/services/icon/register', [ServicesController::class, 'registerIcon'])->name('services.icon.register');
+    Route::get('/services/icon/{id}', [ServicesController::class, 'editIcon'])->name('services.icon');
+    Route::post('/services/icon/update/{id}', [ServicesController::class, 'updateIcon'])->name('services.icon.update');
 
     Route::get('/products', [AdminController::class, 'index'])->name('products');
 
