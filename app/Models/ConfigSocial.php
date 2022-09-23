@@ -10,4 +10,5 @@ class ConfigSocial extends Model
     use HasFactory;
 
     protected $table = "config_social";
+    protected $fillable = ['name', 'link', 'icon', 'status'];
 }

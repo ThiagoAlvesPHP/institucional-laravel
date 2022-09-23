@@ -151,7 +151,7 @@
                                     <a class="btn btn-sm btn-outline-danger">{{__('Delete')}}</a>
                                 </div>
                                 <div class="col">{{ $value->name ?? '' }}</div>
-                                <div class="col">{{ $value->link ?? '' }}</div>
+                                <div class="col">{{ Str::substr($value->link, 0, 15) ?? '' }}</div>
                                 <div class="col">
                                     <img width="25" src="{{ asset('assets/images/icons/'.$value->icon); }}" alt="">
                                 </div>

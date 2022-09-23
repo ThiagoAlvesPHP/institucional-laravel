@@ -59,7 +59,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/config/meta/delete/{id}', [ConfigController::class, 'configMetaDelete'])->name('config.meta.delete');
 
     Route::get('/config/social/status/{id}', [ConfigController::class, 'configSocialUpdateStatus'])->name('condig.social.status');
-    Route::get('/config/social/edit/{id}', [ConfigController::class, 'configSocialUpdate'])->name('config.social.edit');
+    Route::get('/config/social/edit/{id}', [ConfigController::class, 'configSocialEdit'])->name('config.social.edit');
+    Route::post('/config/social/update/{id}', [ConfigController::class, 'configSocialUpdate'])->name('config.social.update');
 
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 });

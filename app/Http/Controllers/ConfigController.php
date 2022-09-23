@@ -108,13 +108,59 @@ class ConfigController extends Controller
         return redirect()->route('config')->with('status', 'Successfully updated!');
     }
     /**
+     * social page edit
+     */
+    public function configSocialEdit($id)
+    {
+        $this->array['path'] = 'social';
+        $this->array['data']['social'] = ConfigSocial::find($id);
+
+        return view('admin.home', $this->array);
+    }
+    /**
      * social update
      */
     public function configSocialUpdate($id, Request $request)
     {
-        $this->array['path'] = 'social';
         $social = ConfigSocial::find($id);
 
-        return view('admin.home', $this->array);
+        // update image
+        if ($request->hasFile('icon')) {
+            // validade upload success
+            if ($request->file('icon')->isValid()) {
+                $extension = $request->icon->extension();
+                // extension valide
+                if ($extension == "png" OR $extension == "svg") {
+                    // create name image
+                    $image = $request->icon->store('');
+                    // delete image directory
+                    unlink(public_path('assets/images/icons/').$social->icon);
+                    // move image directory
+                    $request->icon->move(public_path('assets/images/icons/'), $image);
+                    $social->icon = $image;
+                    $social->save();
+
+                    return redirect()->route('config.social.edit', [$id])->with('status', 'Successfully updated!');
+                } else {
+                    return redirect()->route('config.social.edit', [$id])->with('status', 'Extension invalid!');
+                }
+            } else {
+                return redirect()->route('config.social.edit', [$id])->with('status', 'Problems uploading the image!');
+            }
+        } else {
+            $rulesFormOne = [
+                'name'      => 'required|min:3',
+                'link'     => 'required|min:10'
+            ];
+
+            $validator = Validator::make($request->all(), $rulesFormOne);
+
+            if($validator->fails()) {
+                return redirect()->route('config.social.edit', [$id])->withErrors($validator)->withInput();
+            }
+
+            $social->update($validator->validated());
+            return redirect()->route('config.social.edit', [$id])->with('status', 'Successfully updated!');
+        }
     }
 }
