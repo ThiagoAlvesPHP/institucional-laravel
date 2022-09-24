@@ -16,10 +16,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => "admin@admin.com",
+            'name' => "Thiago Alves",
+            'email' => "thiagoalves@ltdeveloper.com.br",
             'email_verified_at' => now(),
-            'password' => Hash::make('admin123'),
+            'password' => Hash::make('Alves211085'),
             'remember_token' => Str::random(10),
         ];
     }
