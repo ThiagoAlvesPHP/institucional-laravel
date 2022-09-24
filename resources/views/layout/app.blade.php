@@ -24,7 +24,7 @@
 
     <title>{{ $data['config']->title ?? '' }}</title>
 
-    <link rel="icon" href="{{ asset('assets/'.$data['config']->favicon ?? '') }}" type="image/x-icon"/>
+    {{-- <link rel="icon" href="{{ asset('assets/'.$data['config']->favicon ?? '') }}" type="image/x-icon"/> --}}
 
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet/less" type="text/css" href="{{asset('assets/css/styles.less')}}" />
