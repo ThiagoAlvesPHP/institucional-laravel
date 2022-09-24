@@ -26,6 +26,7 @@ class CreateConfigTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('country');
+            $table->string('link_whatsapp');
             $table->string('logo');
             $table->string('logo_dark');
             $table->string('favicon');

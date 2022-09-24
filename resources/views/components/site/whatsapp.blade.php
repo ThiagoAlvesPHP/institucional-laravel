@@ -19,7 +19,7 @@
         <div class="whatsappme__message">
             {{__('Do you have any questions or are you interested in our services? Talk to us now!')}}
         </div>
-        <a href="https://api.whatsapp.com/send?phone={{trim($data->phone) ?? ''}}&text={{__('I am interested in knowing more about your services.')}}" target="_blank" class="btn-whatsapp close">
+        <a href="{{trim($data->link_whatsapp) ?? ''}}" target="_blank" class="btn-whatsapp close">
             {{__('Send Whatsapp')}}
         </a>
     </div>

@@ -16,12 +16,36 @@ class ConfigSocialSeeder extends Seeder
     public function run()
     {
         $array =  [
-            ['name' => "Facebook", 'link' => '#', 'icon' => 'facebook.svg'],
-            ['name' => "Instagram", 'link' => '#', 'icon' => 'instagram.svg'],
-            ['name' => "Linkedin", 'link' => '#', 'icon' => 'linkedin.svg'],
-            ['name' => "Discord", 'link' => '#', 'icon' => 'discord.svg'],
-            ['name' => "Telegram", 'link' => '#', 'icon' => 'telegram.svg'],
-            ['name' => "Whatsapp", 'link' => '#', 'icon' => 'whatsapp.svg'],
+            [
+                'name' => "Facebook",
+                'link' => 'https://www.facebook.com/ltdeveloper/',
+                'icon' => 'facebook.svg'
+            ],
+            [
+                'name' => "Instagram",
+                'link' => 'https://www.instagram.com/ltdeveloperweb/',
+                'icon' => 'instagram.svg'
+            ],
+            [
+                'name' => "Linkedin",
+                'link' => 'https://www.linkedin.com/in/thiago-alves-b96b2159/',
+                'icon' => 'linkedin.svg'
+            ],
+            [
+                'name' => "Discord",
+                'link' => '#',
+                'icon' => 'discord.svg'
+            ],
+            [
+                'name' => "Telegram",
+                'link' => '#',
+                'icon' => 'telegram.svg'
+            ],
+            [
+                'name' => "Whatsapp",
+                'link' => 'https://wa.me/message/2CZCBDNW4HZJG1',
+                'icon' => 'whatsapp.svg'
+            ],
         ];
 
         foreach ($array as $value) {

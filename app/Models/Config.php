@@ -21,6 +21,7 @@ class Config extends Model
         'city',
         'state',
         'country',
+        'link_whatsapp',
         'logo',
         'logo_dark',
         'favicon',

@@ -63,6 +63,8 @@
                         <input type="text" name="country" id="country" class="@error('country') is-invalid @enderror form-control" value="{{ $data['config']->country ?? '' }}">
                     </div>
                 </div>
+                <label for="link_whatsapp">{{__('Link Whatsapp')}}</label>
+                <input type="text" name="link_whatsapp" id="link_whatsapp" class="@error('link_whatsapp') is-invalid @enderror form-control" value="{{ $data['config']->link_whatsapp ?? '' }}">
 
                 <br>
                 <div class="d-grid">

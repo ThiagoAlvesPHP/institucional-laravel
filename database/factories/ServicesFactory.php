@@ -15,8 +15,8 @@ class ServicesFactory extends Factory
     {
         return [
             'name'      => 'Serviços',
-            'text'      => 'Atuando com desenvolvimento de sites, lojas virtuais e aplicativos, criamos soluções customizadas para a necessidade da sua empresa.',
-            'link'      => '#',
+            'text'      => 'Atuando com desenvolvimento de sites, lojas virtuais e sistemas web, criamos soluções customizadas para a necessidade da sua empresa.',
+            'link'      => 'https://wa.me/message/2CZCBDNW4HZJG1',
             'link_text' => 'Marcar uma call',
             'link_icon' => 'fas fa-phone',
             'image'     => 'service.png'

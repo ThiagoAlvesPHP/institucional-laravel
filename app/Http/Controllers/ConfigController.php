@@ -50,7 +50,8 @@ class ConfigController extends Controller
                 'complement'        => '',
                 'city'              => 'required|min:3',
                 'state'             => 'required|min:2',
-                'country'           => 'required|min:3'
+                'country'           => 'required|min:3',
+                'link_whatsapp'     => 'required|min:10'
             ];
         }
         if ($request->input('update-head')) {

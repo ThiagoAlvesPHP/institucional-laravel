@@ -16,7 +16,7 @@ class BannerFactory extends Factory
         return [
             'title'     => 'LT Developer',
             'text'      => 'Leve a presença digital da sua empresa para um próximo nível! Do desenvolvimento à gestão e promoção de seu site, app ou e-commerce',
-            'link'      => '#',
+            'link'      => 'https://wa.me/message/2CZCBDNW4HZJG1',
             'link_text' => 'Clique Aqui',
             'image'     => 'banner.png'
         ];
