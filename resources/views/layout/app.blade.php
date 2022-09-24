@@ -15,7 +15,7 @@
     <meta property="og:url" content="{{Request::url()}}">
     <meta property="ia:markup_url" content={{Request::url()}}">
     <meta property="og:title" content="{{ $data['config']->title ?? '' }}">
-    <meta property="og:image" content="{{ asset('assets/'.$data['config']->logo_dark) }}">
+    <meta property="og:image" content="{{ asset('assets/images/template.png') }}">
     <meta property="og:image:alt" content="{{ $data['config']->title ?? '' }}">
 
     @foreach ($metas as $value)
