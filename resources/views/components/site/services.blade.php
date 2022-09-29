@@ -15,9 +15,9 @@
             @endforeach
         </div>
 
-        <a href="{{$data->link ?? ''}}" class="link">
-            <i class="<?=$data->link_icon ?? ''; ?>"></i>
-            <?=$data->link_text ?? ''; ?>
+        <a href="{{$data->link ?? ''}}" class="link link-google-analitick" id="Button Service - {{$data->link_text ?? ''}}">
+            <i class="{{$data->link_icon ?? ''}}"></i>
+            {{$data->link_text ?? ''}}
         </a>
     </div>
 </section>

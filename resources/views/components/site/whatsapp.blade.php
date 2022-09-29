@@ -1,4 +1,4 @@
-<div class="zap-a">
+<div class="zap-a link-google-analitick" id="Button Whatsapp">
     <img class="img" src="{{ asset('assets/images/whatsapp/zap-a.png') }}" alt="WhatsApp">
 </div>
 <div class="zap-a-content">
@@ -19,7 +19,7 @@
         <div class="whatsappme__message">
             {{__('Do you have any questions or are you interested in our services? Talk to us now!')}}
         </div>
-        <a href="{{trim($data->link_whatsapp) ?? ''}}" target="_blank" class="btn-whatsapp close">
+        <a href="{{trim($data->link_whatsapp) ?? ''}}" target="_blank" class="btn-whatsapp close link-google-analitick" id="Action Whatsapp">
             {{__('Send Whatsapp')}}
         </a>
     </div>

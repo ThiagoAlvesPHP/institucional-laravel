@@ -28,6 +28,6 @@
             </div>
         </div>
         <textarea name="message" id="message" class="textarea @error('message') is-invalid @enderror" placeholder="{{__('Message')}}" cols="30" rows="10">{{old('message')}}</textarea>
-        <button class="btn link">Enviar</button>
+        <button class="btn link link-google-analitick" id="Button Contact - {{__('Contact us')}}">Enviar</button>
     </form>
 </section>
