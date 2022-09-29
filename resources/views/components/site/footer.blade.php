@@ -6,7 +6,7 @@
             <div class="social">
                 @if ($configSocial)
                     @foreach ($configSocial as $value)
-                        <a href="<?=$value['link'] ?? '' ?>" class="link-social link-google-analitick" title="{{$value->name ?? ''}}" id="Action Social - {{$value->name ?? ''}}">
+                        <a href="<?=$value['link'] ?? '' ?>" class="link-social link-google-analitick" title="{{$value->name ?? ''}}" target="_blank" id="Action Social - {{$value->name ?? ''}}">
                             <img src="assets/images/icons/<?=$value['icon'] ?? '' ?>" width="30" height="30" alt="{{$value->name ?? ''}}">
                         </a>
                     @endforeach
