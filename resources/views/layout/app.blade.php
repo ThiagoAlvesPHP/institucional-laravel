@@ -24,7 +24,6 @@
 
     <title>{{ $data['config']->title ?? '' }}</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet/less" type="text/css" href="{{asset('assets/css/styles.less')}}" />
     <script src="{{ asset('assets/js/jquery.min.js'); }}"></script>
 
