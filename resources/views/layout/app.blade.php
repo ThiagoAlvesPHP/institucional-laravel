@@ -1,3 +1,6 @@
+@php
+    header("Content-Security-Policy: script-src 'self'");
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
