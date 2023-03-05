@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="{{ $data['config']->keywords ?? '' }}"/>
     <meta property="og:description" content="{{ $data['config']->text ?? '' }}">
+    <meta name="description" content="{{ $data['config']->text ?? '' }}">
     <meta name="language" content="Portuguese-Brazil">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">

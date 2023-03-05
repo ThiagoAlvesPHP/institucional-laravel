@@ -33,7 +33,7 @@ class ConfigSocialSeeder extends Seeder
             ],
             [
                 'name' => "Discord",
-                'link' => '#',
+                'link' => 'https://t.me/+5573999412514',
                 'icon' => 'discord.svg'
             ],
             [
