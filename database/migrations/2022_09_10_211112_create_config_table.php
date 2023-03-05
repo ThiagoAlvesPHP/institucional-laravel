@@ -31,8 +31,8 @@ class CreateConfigTable extends Migration
             $table->string('logo_dark');
             $table->string('favicon');
             $table->string('title');
-            $table->string('text');
-            $table->string('keywords')->nullable();
+            $table->mediumText('text');
+            $table->mediumText('keywords')->nullable();
             $table->timestamps();
         });
     }

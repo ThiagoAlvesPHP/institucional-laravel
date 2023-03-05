@@ -4,7 +4,7 @@
             <h3 class="title">{{$data->name ?? ''}}</h3>
         </div>
         <div class="col image">
-            <p class="description">{{$data->text ?? ''}}</p>
+            <p class="description">{!! $data->text ?? '' !!}</p>
         </div>
     </div>
 </section>

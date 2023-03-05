@@ -29,9 +29,10 @@ class ConfigFactory extends Factory
             "logo"              => "logo.webp",
             "logo_dark"         => "logo.png",
             "favicon"           => 'favicon.ico',
-            'title'             => "LT Developer",
-            'text'              => "Atuando com desenvolvimento de sites, lojas virtuais, aplicativos e sistemas web criamos soluções customizadas para a necessidade da sua empresa",
-            'keywords'          => 'institucional, web, desenvolvimento, programação, site, loja virtual, desenvolvimento web, programação web'
+            'title'             => "Criação de Sites - Agência de Desenvolvimento Web | LT Developer",
+            'text'              => "Oferecemos serviços completos de desenvolvimento de sites, desde a criação de páginas web responsivas até o desenvolvimento de e-commerce e aplicativos web personalizados. Trabalhamos em estreita colaboração com você para entender suas necessidades específicas e desenvolver soluções sob medida para o seu negócio.",
+            'keywords'          => 'Desenvolvimento de sites, Criação de sites, Desenvolvimento web, Criação de páginas web, Programação web, Web design, Desenvolvimento de sites responsivos
+            , Desenvolvimento de e-commerce, Desenvolvimento de aplicativos web, Desenvolvimento de sites institucionais'
         ];
     }
 }

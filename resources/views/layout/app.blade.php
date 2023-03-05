@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <meta name="keywords" content="{{ $data['config']->keywords ?? '' }}"/>
     <meta property="og:description" content="{{ $data['config']->text ?? '' }}">
-
+    <meta name="language" content="Portuguese-Brazil">
+    <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ $data['config']->title ?? '' }}">
     <meta name="author" content="{{ $data['config']->name ?? '' }}">
